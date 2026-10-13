@@ -1,105 +1,112 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-CO">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New Athletic Clothes - Suplementos</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New Athletic Clothes | Suplementos deportivos en Colombia</title>
+  <meta name="description" content="Suplementos deportivos originales con envíos a todo Colombia. Haz tu pedido fácil por WhatsApp con New Athletic Clothes." />
+  <meta name="theme-color" content="#000000" />
+  <!-- Vista previa al compartir en redes (sube og.png junto a este archivo) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CO" />
+  <meta property="og:site_name" content="New Athletic Clothes" />
+  <meta property="og:title" content="New Athletic Clothes | Suplementos deportivos en Colombia" />
+  <meta property="og:description" content="Suplementos deportivos originales con envíos a todo Colombia. Pide fácil por WhatsApp." />
+  <meta property="og:image" content="og.png" />
+  <link rel="icon" href="logo-1x1.png" />
+  <!-- Tipografía Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Encabezado con el logo -->
-  <header>
-    <img src="img/NAC horitzontal.png" alt="Logo de New Athletic Clothes">
-  </header>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
 
-  <!-- Barra de navegación -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="#">INICIO</a></li>
-      <li class="dropdown">
-        <a href="#">CATEGORÍAS ▼</a>
-        <ul class="dropdown-content">
-          <li><a href="#">Proteínas</a></li>
-          <li><a href="#">Aminoácidos</a></li>
-          <li><a href="#">Creatinas</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#">MARCAS ▼</a>
-        <ul class="dropdown-content">
-          <li><a href="#">TNT</a></li>
-          <li><a href="#">Smart Nutrition</a></li>
-          <li><a href="#">Carnivor</a></li>
-        </ul>
-      </li>
-      <li><a href="#">COMBOS</a></li>
-      <li><a href="#">OFERTAS</a></li>
-      <li><a href="#">MI CUENTA</a></li>
-      <li><a href="#"><span class="cart">🛒 <span id="cart-count">0</span></span></a></li>
-      <li><a href="#"><span class="search">🔍</span></a></li>
-    </ul>
-  </nav>
-
-  <!-- Banner -->
-  <div class="banner">
-    🚚 Envíos gratis a todo Colombia
+  <!-- Barra superior con mensajes en movimiento -->
+  <div class="marquee" aria-label="Avisos de la tienda">
+    <div class="marquee__track" id="marquee"></div>
   </div>
 
-  <!-- Catálogo de suplementos -->
-  <section class="catalogo" id="catalogo">
-
-    <article class="producto">
-      <span class="oferta">¡OFERTA!</span>
-      <img src="https://buggafit.com/wp-content/uploads/2019/09/TNT-10-LIBRAS.jpg" alt="TNT Mega Mass Gainer 10LB">
-      <h3>TNT Mega Mass Gainer 10LB</h3>
-      <div class="precio-container">
-        <span class="precio-anterior">$215,000</span>
-        <span class="precio">$195,000</span>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <a href="#/" class="header__logo" aria-label="New Athletic Clothes, ir al inicio">
+        <img src="logo.png" alt="New Athletic Clothes" width="1436" height="510" class="logo-white"
+             onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'logo-text',textContent:'NEW ATHLETIC'}))" />
+      </a>
+      <nav class="nav" aria-label="Principal" id="nav"></nav>
+      <div class="header__actions">
+        <button class="icon-btn cart-btn" id="cartBtn" aria-label="Ver carrito">
+          <svg viewBox="0 0 24 24" class="ico"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.1L21 7H6" fill="none"/></svg>
+          <span class="cart-count" id="cartCount" hidden>0</span>
+        </button>
+        <button class="icon-btn" id="searchBtn" aria-label="Buscar productos" aria-expanded="false">
+          <svg viewBox="0 0 24 24" class="ico"><circle cx="11" cy="11" r="7" fill="none"/><path d="m20 20-4-4" fill="none"/></svg>
+        </button>
+        <button class="icon-btn burger" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <svg viewBox="0 0 24 24" class="ico ico--lg"><path d="M3 6h18M3 12h18M3 18h18" fill="none"/></svg>
+        </button>
       </div>
-      <button class="boton" onclick="agregarAlCarrito('TNT Mega Mass Gainer 10LB', 195000)">Agregar al carrito</button>
-    </article>
+    </div>
+    <div class="search-panel" id="searchPanel" hidden>
+      <form class="container search" role="search" id="searchForm">
+        <label for="searchInput" class="sr-only">Buscar productos</label>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="¿Qué suplemento buscas?" />
+        <div class="search__results" id="searchResults" hidden></div>
+      </form>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil" hidden></nav>
+  </header>
 
-    <article class="producto">
-      <span class="oferta">¡OFERTA!</span>
-      <img src="https://buggafit.com/wp-content/uploads/2019/09/SMART-GAINER-3LB-PROSCIENCE-1.jpg" alt="Smart Gainer 3LB">
-      <h3>Smart Gainer 3LB</h3>
-      <div class="precio-container">
-        <span class="precio-anterior">$98,000</span>
-        <span class="precio">$90,000</span>
-      </div>
-      <button class="boton" onclick="agregarAlCarrito('Smart Gainer 3LB', 90000)">Agregar al carrito</button>
-    </article>
+  <!-- Aquí se dibuja cada página (inicio, categoría, producto, carrito…) -->
+  <main id="contenido"></main>
 
-    <article class="producto">
-      <span class="oferta">¡OFERTA!</span>
-      <img src="https://buggafit.com/wp-content/uploads/2019/09/MEGAMASS-3LB.jpg" alt="TNT Mega Mass Gainer 3LB">
-      <h3>TNT Mega Mass Gainer 3LB</h3>
-      <div class="precio-container">
-        <span class="precio-anterior">$97,000</span>
-        <span class="precio">$77,000</span>
-      </div>
-      <button class="boton" onclick="agregarAlCarrito('TNT Mega Mass Gainer 3LB', 77000)">Agregar al carrito</button>
-    </article>
-
-    <article class="producto">
-      <span class="oferta">¡OFERTA!</span>
-      <img src="https://buggafit.com/wp-content/uploads/2019/09/CARNIVOR-MASS-6LB.jpg" alt="Carnivor Mass 6LB">
-      <h3>Carnivor Mass 6LB</h3>
-      <div class="precio-container">
-        <span class="precio-anterior">$272,000</span>
-        <span class="precio">$252,000</span>
-      </div>
-      <button class="boton" onclick="agregarAlCarrito('Carnivor Mass 6LB', 252000)">Agregar al carrito</button>
-    </article>
-
-  </section>
-
-  <!-- Pie de página -->
+  <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 New Athletic Clothes - Suplementación deportiva</p>
+    <div class="footer__grid container">
+      <nav aria-label="Información legal">
+        <ul class="footer__legal" id="footerLegal"></ul>
+      </nav>
+      <div>
+        <p class="footer__title">Medios de pago</p>
+        <ul class="pay-list" id="payList"></ul>
+        <p class="footer__note">Coordinamos tu pago por WhatsApp al confirmar el pedido.</p>
+      </div>
+      <div class="footer__social">
+        <p class="footer__title">Síguenos en redes sociales</p>
+        <ul class="social" id="social"></ul>
+        <img src="logo.png" alt="New Athletic Clothes" width="1436" height="510" class="logo-white footer__logo" loading="lazy" onerror="this.remove()" />
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>NEW ATHLETIC CLOTHES | SUPLEMENTACIÓN CON ACTITUD</p>
+      <p>© <span id="year"></span> New Athletic Clothes. Todos los derechos reservados.</p>
+    </div>
   </footer>
 
-  <!-- JS -->
-  <script src="script.js"></script>
+  <!-- Botones flotantes -->
+  <a class="wa-float" id="waFloat" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp (se abre en una pestaña nueva)">
+    <svg viewBox="0 0 24 24" class="ico ico--wa"><path stroke="none" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
+  </a>
+  <button class="to-top" id="toTop" aria-label="Volver arriba" tabindex="-1">
+    <svg viewBox="0 0 24 24" class="ico"><path d="m6 15 6-6 6 6" fill="none"/></svg>
+  </button>
+
+  <!-- Carrito lateral -->
+  <div class="drawer" id="drawer" hidden>
+    <div class="drawer__overlay" data-close></div>
+    <div class="drawer__panel" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+      <div class="drawer__head">
+        <h2 id="drawerTitle">Tu carrito</h2>
+        <button class="icon-btn" data-close aria-label="Cerrar carrito">
+          <svg viewBox="0 0 24 24" class="ico"><path d="M6 6l12 12M18 6 6 18" fill="none"/></svg>
+        </button>
+      </div>
+      <div class="drawer__body" id="drawerBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
